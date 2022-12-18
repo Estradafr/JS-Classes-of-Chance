@@ -1,5 +1,26 @@
 class Casino {
-    // Write code here
+    constructor(name) {
+        this.name = name;
+        this.timesPlayed = 0;
+        this.winnings = 0;
+    }
+
+    playGame(betAmount) {
+        this.timesPlayed += 1;
+        if (Math.random() > 0.5) {
+            console.log('You won ' + betAmount * (this.timesPlayed) + ' dollars from' + this.name + '!');
+            this.winnings += this.timesPlayed * betAmount;
+            console.log('Current winnings: ' + this.winnings);
+        } else {
+            console.log(this.name + ' wins!');
+            this.timesPlayed = 0;
+            this.winnings = 0;
+        }
+    }
+
+    rollDice(sides) {
+        console.log(Math.floor(Math.random() * sides) + 1);
+    }
 };
 
 // TESTS
